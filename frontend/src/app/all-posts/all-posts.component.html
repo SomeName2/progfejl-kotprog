@@ -1,0 +1,7 @@
+<app-header></app-header>
+<h1>All posts</h1>
+<div *ngFor="let post of posts | async">
+	user: {{post.user}}<br>post: {{post.text}}<br>
+	created: {{post.created}}<br>
+	modified: {{post.modified}}<br><br>
+</div>

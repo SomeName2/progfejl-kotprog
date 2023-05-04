@@ -1,0 +1,7 @@
+<app-header></app-header>
+<h1>Posts of {{user}}</h1>
+<div *ngFor="let post of user_posts">
+	post: {{post.text}}<br>
+	created: {{post.created}}<br>
+	modified: {{post.modified}}<br><br>
+</div>

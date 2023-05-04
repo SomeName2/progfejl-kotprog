@@ -1,0 +1,15 @@
+<div>
+	<button [routerLink]="['/home']">Home</button>
+	<button [routerLink]="['/users']">Users</button>
+	<button [routerLink]="['/admin']" *ngIf="admin_observable | async">Admin</button>
+	<span *ngIf = "user_observable | async">
+		<button (click) = "on_user_posts()" >My Posts</button>
+		<button [routerLink]="['/new-post']" >New Post</button>
+		<button (click) = "on_logout()" >Log out</button>
+	</span>
+	<span *ngIf="!(user_observable | async)">
+		<button [routerLink]="['/login']">Login</button>
+		<button [routerLink]="['/register']" >Register</button>
+	</span>
+	{{message}}
+</div>

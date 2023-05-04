@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div *ngFor="let post of posts | async">
+	user: {{post.user}}<br>
+	post: {{post.text}}<br>
+	created: {{post.created}}<br>
+	modified: {{post.modified}}<br>
+	<div>
+		<button [routerLink]="['/edit', post.user, post._id]" >Edit</button>
+		<button (click) = "on_delete(post._id)" >Delete</button>
+	</div><br>
+</div>
+
+

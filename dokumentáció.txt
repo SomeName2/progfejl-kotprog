@@ -1,0 +1,112 @@
+Projekt célja:
+	Egy weboldal ahol a felhasználók kiposztolhatják gondolataikat
+
+Működés és használat:
+	Futtatás:
+		npm install
+		node app.js
+		Adatbázist alapértelmezetten a mongo:27017 címen keresi
+		Ez a database.js -ben átírható
+		
+		A frontend a 3000 -es porton elérhető
+	
+	Login:
+		user: admin
+		jelszo: admin123
+		
+		%d: 0-4
+		user: user_%d
+		jelszo: user_%d
+	
+	Register:
+		regisztráció
+	
+	Home:
+		Az összes felhasználó összes posztja
+	
+	Users:
+		A felhasználók listája, linkre kattintva megtekinthetőek a felhasználó posztjai
+	
+	My Posts:
+		A bejelentkezett felhasználó posztjai
+	
+	New Post:
+		Új poszt létrehozása
+	
+	Admin:
+		Az admin felhasználó számára. Az összes poszt törölhető, vagy szerkeszthető megfelelő gombal.
+	
+	Egyebek:
+		created:
+			Az adott poszt létrehozásának idelye
+		
+		modified:
+			Ha az admin módosította akkor különbözik a created -től
+
+Backend
+	A backend statikusan hostolja a frontendet
+		app.js
+	
+	Az alkalmazás kapcsolódik egy mongodb instance-hoz
+		database.js
+		
+	Az alkalmazás képes bootstrappelni, vagyis MongoDB-t alap userekkel feltölteni
+		database.js
+	
+	A szerver megvalósít legalább két modellt, melyek sémája egyértelműen definiált
+		database.js
+		
+	Adott legalább két olyan adatbázis hook, amelyek a modellek mentése vagy lekérése közben futnak le
+		database.js
+		
+	A szerver megvalósít egy lokális autentikációs stratégiát
+		passport.js
+		
+	A szerver kezeli a login sessiont
+		users_api.js
+		posts_api.js
+	
+	A szerver rendelkezik a két kezelt modell CRUD interfészeivel, illetve egy login, logout, register route-tal
+		users_api.js
+		posts_api.js
+		
+Frontend
+	A frontend kommunikál a backenddel
+		users.service.ts
+		posts.service.ts
+		
+	A frontend komponensei route-okkal érhetőek el, a navigáció megfelelően működik
+		app-routing.module.ts
+	
+	A frontend rendelkezik legalább egy regisztráció, egy login, egy főoldal/terméklista, egy admin felület, egy termék részletező és egy egyéb komponenssel, melyek fel vannak töltve megfelelő tartalommal
+		register/
+		login/
+		all-posts/
+		posts-admin/
+		posts/
+		users/
+		new-post/
+	
+	A frontend a bejelentkezéshez a backend megfelelő végpontjait szólítja meg
+		users.service.ts
+	
+	A backenddel való kommunikáció elemei ki vannak szervezve service-ekbe
+		users.service.ts
+		posts.service.ts
+	
+	Van authguard, amely védi a login, register utáni route-okat és az admin felületét
+		app-routing.module.ts
+		login.guard.ts
+		admin.guard.ts
+	
+Dokumentáció
+	Tartalmazza a fejlesztési naplót, mely logokkal bemutatja a fejlesztés menetét
+		nincs
+		
+	Mindkét komponens létrejött és nem csak órai kódok másolata / üres template, a logokból és a forráskódokból is látszódik a befektetett munka
+		lásd többi
+		
+	Vannak képernyőképek és leírások, a dokumentációból egyértelmű a projekt célja, működése és használata
+		nincsenek képek
+		dokumentáció.txt
+

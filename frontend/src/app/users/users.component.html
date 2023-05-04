@@ -1,0 +1,3 @@
+<app-header></app-header>
+<h1>Users</h1>
+<div *ngFor = "let user of users_list"><a [routerLink] = "['/posts', user]">{{user}}</a></div>
